@@ -32,4 +32,26 @@ router.get('/admin/categoria', (req, res) => {
 
 })
 
+router.post('/categoria/delete', (req, res) => {
+    var id = req.body.id
+
+    if (id != undefined) {
+        if (!isNaN(id)) {
+
+            Categoria.destroy({
+                where: {
+                    id: id
+                }
+            }).then(() =>{
+                res.redirect('/admin/categoria')
+            })
+            
+        }else{ // se o id não for um numero
+            res.redirect('/admin/categoria')
+        }
+    }else{ // se o id for null
+        res.redirect('/admin/categoria')
+    }
+})
+
 module.exports = router
