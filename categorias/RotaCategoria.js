@@ -5,8 +5,8 @@ router.get ('/categorias', (req, res) => {
     res.send('ROTA DE CATEGORIAS')
 })
 
-router.get('/admin/categorias/novo', (req, res) => {
-    res.send('ROTA PARA CRIAR UMA NOVA CATEGORIA')
+router.get('/admin/categoria/novo', (req, res) => {
+    res.render('admin/categoria/novo')
 })
 
 module.exports = router
