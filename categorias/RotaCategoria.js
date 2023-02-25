@@ -25,7 +25,11 @@ router.post ('/categoria/salvar', (req, res) => {
 })
 
 router.get('/admin/categoria', (req, res) => {
-    res.render('admin/categoria/index')
+
+    Categoria.findAll().then(categoria => {
+        res.render('admin/categoria/index', {categoria: categoria})
+    })
+
 })
 
 module.exports = router
