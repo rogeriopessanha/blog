@@ -16,7 +16,7 @@ router.post ('/categoria/salvar', (req, res) => {
             slug: slugify(titulo)
         })
         .then(() => {
-            res.redirect('/')
+            res.redirect('/admin/categoria')
         })
 
     }else{
@@ -26,7 +26,8 @@ router.post ('/categoria/salvar', (req, res) => {
 
 router.get('/admin/categoria', (req, res) => {
 
-    Categoria.findAll().then(categoria => {
+    Categoria.findAll()
+    .then(categoria => {
         res.render('admin/categoria/index', {categoria: categoria})
     })
 
@@ -52,6 +53,28 @@ router.post('/categoria/delete', (req, res) => {
     }else{ // se o id for null
         res.redirect('/admin/categoria')
     }
+})
+
+router.get('/admin/categoria/editar/:id', (req, res) => {
+    var id = req.params.id
+    
+    if (isNaN(id)) {
+        res.redirect('/admin/categoria')
+    }
+
+    Categoria.findByPk(id)
+    .then(categoria => {
+        if (categoria != undefined) {
+            
+            res.render('admin/categoria/editar', {categoria: categoria})
+
+        }else{
+            res.redirect('/admin/categoria')
+        }
+    })
+    .catch(erro => {
+        res.redirect('/admin/categoria')
+    })
 })
 
 module.exports = router
