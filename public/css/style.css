@@ -1,8 +1,21 @@
 body{
-    background-color: #2f5c60;
+    background-color: #323232;
 }
 
 .container{
     max-width: 500px;
     height: 50vh;
 }
+
+.container h2, th, td{
+    color: #fff;
+}
+
+.navbar-nav{
+    flex-direction: row;
+}
+
+.navbar-nav li{
+    padding-left: 20px;
+}
+
