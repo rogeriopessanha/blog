@@ -8,7 +8,8 @@ const dbPassword = process.env.DB_PASSWORD;
 const connection = new Sequelize(dbName, dbUser, dbPassword, {
     host: dbHost,
     dialect: 'mysql',
-    logging: false
+    logging: false,
+    timezone: '-03:00'
 })
 
 module.exports = connection

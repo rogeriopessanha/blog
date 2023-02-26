@@ -11,12 +11,20 @@
             </div>
 
             <div class="card-body">
-                <form method="POST" action="/categoria/salvar">
+                <form method="POST" action="/artigo/salvar">
 
                     <input class="form-control" type="text" name="titulo"
                         placeholder="Defina o titulo do artigo"> <br>
 
-                        <textarea name="assunto-artigo" id="artigo" placeholder="Escreva o artigo aqui" class="form-control" ></textarea> <br>
+                    <textarea name="assunto" id="artigo" placeholder="Escreva o artigo aqui" class="form-control" ></textarea> <br>
+
+                    <label for="">Categoria</label> <br>
+
+                    <select name="categoria" id="" class="form-control">
+                        <% categoria.forEach((categoria) => { %>
+                                <option value="<%= categoria.id  %>"> <%= categoria.titulo  %></option>
+                            <%}) %>
+                    </select> <br>
 
                     <button type="submit" class="btn-success">Publicar</button>
                 </form>
@@ -32,7 +40,11 @@
 
 <script>
 tinymce.init({
+    language: "pt_BR",
     selector: '#artigo',
+    selector: 'textarea',
+    height: 330,
+    resize: false,
     plugins: [
         'advlist',
         'autolink',
