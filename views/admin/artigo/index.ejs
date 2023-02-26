@@ -9,7 +9,7 @@
     <a href="/admin/artigo/novo"><button class="btn btn-success">Criar nova artigo</button></a>
     <hr>
 
-    <table class="table table-bordered">
+    <table class="table table-bordered"> 
         <thead>
             <tr>
                 <th>ID</th>
@@ -21,20 +21,22 @@
         </thead>
 
         <tbody>
-            <% artigo.forEach(artigo => { %>
-                <td> <%= artigo.id %> </td>
+            <% artigo.forEach(artigo => { %> 
+                <tr>
+                    <td> <%= artigo.id %> </td>
                 <td> <%= artigo.titulo %> </td>
                 <td> <%= artigo.slug %> </td>
                 <td> <%= artigo.categoria.titulo %> </td>
                 
                 <td>
-                    <form method="POST" action="/artigo/delete" style="display: inline;" onsubmit="deleteConfirma(event, this)">
+                    <form method="POST" action="/artigo/delete" style="display: inline;" onsubmit="deleteConfirma(event, this)"> 
                            
                         <input type="hidden" name="id" value="<%= artigo.id %>">
 
                         <button class="btn btn-danger">Deletar</button>
                     </form>
                 </td>
+                </tr>
            <% }) %>
             
         </tbody>

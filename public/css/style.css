@@ -1,5 +1,6 @@
 body{
     background-color: #323232;
+    color: #fff;
 }
 
 .container{
@@ -7,8 +8,21 @@ body{
     height: 50vh;
 }
 
-.container h2, th, td{
+.container h1, h2, th, td{
     color: #fff;
+}
+
+.container .card {
+   margin-top: 20px;
+}
+
+.container .card h3{
+color: #000;    
+font-size: 20px;
+}
+
+.btn{
+    font-size: 14px;
 }
 
 .navbar-nav{

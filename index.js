@@ -38,7 +38,9 @@ app.use('/', rotaArtigos)
 
 //renderiza na tela
 app.get('/', (req, res) => {
-    res.render('index')
+    Artigo.findAll().then(artigo => {
+        res.render('index', {artigo: artigo})
+    })
 })
 
 app.listen(process.env.PORT, () => {
