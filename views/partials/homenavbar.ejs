@@ -4,10 +4,18 @@
     </a>
 
     <ul class="navbar-nav me-auto">
+
         <li class="nav-item">
-            <a class="nav-link" href="/">
-                Home
-            </a>
+            <a class="nav-link" href="/">Home</a>
         </li>
+
+        <% categoria.forEach(categoria =>{ %>
+            <li class="nav-item">
+                <a class="nav-link" href="/categoria/<%= categoria.slug %>">
+                    <%= categoria.titulo %>
+                </a>
+            </li>
+       <% }) %>
+
     </ul>
 </nav>
