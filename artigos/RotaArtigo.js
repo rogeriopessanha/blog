@@ -58,4 +58,23 @@ router.post('/artigo/delete', (req, res) => {
     }
 })
 
+router.get('/admin/artigo/editar/:id', (req, res) =>{
+    var id = req.params.id
+    Artigo.findByPk(id)
+    .then(artigo => {
+        if (artigo != undefined) {
+
+            Categoria.findAll()
+            .then(categoria => {
+                res.render('admin/artigo/editar', {categoria: categoria, artigo: artigo})
+            })
+        }else{
+            res.redirect('/')
+        }
+    })
+    .catch(error => {
+        res;redirect('/')
+    })
+})
+
 module.exports = router
