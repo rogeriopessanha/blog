@@ -1,0 +1,24 @@
+
+<%- include('../../partials/homenavbar') %>
+<%- include('../../partials/header') %>
+<%- include('../../partials/navbar') %>
+
+    <body>
+        <div class="container">
+
+             <% resultado.artigo.rows.forEach((artigo) => { %>
+                <div class="card">
+                    <div class="card-header">
+                        <h2><%= artigo.titulo %></h2>
+                    </div>
+                    <div class="card-body">
+                        <a href="/<%= artigo.slug %>" class="btn btn-success">Ler artigo</a>
+                    </div>
+                </div>
+                <br>
+            <% }) %>
+        </div>
+
+    </body>
+
+<%- include('../../partials/footer') %>

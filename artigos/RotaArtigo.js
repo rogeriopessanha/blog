@@ -96,7 +96,7 @@ router.post('/artigo/atualizar', (req, res) => {
     })
 })
 
-router.get('/artigo/paginas/:num', (req, res) => {
+router.get('/admin/artigo/pagina/:num', (req, res) => {
     var pagina = req.params.num
     var offset = 0
 
@@ -109,10 +109,9 @@ router.get('/artigo/paginas/:num', (req, res) => {
 
     Artigo.findAndCountAll({
         limit: 2,
-        offset: 2
+        offset: offset,
     })
     .then(artigo => {
-
 
         var proximo
         if (offset + 4 >= artigo.count) {
@@ -126,7 +125,11 @@ router.get('/artigo/paginas/:num', (req, res) => {
             artigo: artigo,
         }
 
-        res.json(resultado)
+        Categoria.findAll()
+        .then(categoria => {
+            res.render('admin/artigo/pagina', {resultado: resultado, categoria: categoria})
+        })
+
     })
 })
 
