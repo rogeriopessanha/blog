@@ -83,7 +83,7 @@ router.post('/artigo/atualizar', (req, res) => {
     var assunto = req.body.assunto
     var categoria = req.body.categoria
 
-    Artigo.atualizar({titulo: titulo, body: assunto, categoriaId: categoria, slug: slugfy(titulo)}, {
+    Artigo.update({titulo: titulo, body: assunto, categoriaId: categoria, slug: slugfy(titulo)}, {
         where: {
             id: id
         }
