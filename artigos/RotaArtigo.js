@@ -96,4 +96,41 @@ router.post('/artigo/atualizar', (req, res) => {
     })
 })
 
+router.get('/artigo/paginas/:num', (req, res) => {
+    var pagina = req.params.num
+    var offset = 0
+
+    if (isNaN(pagina) || pagina == 1) {
+        offset = 0
+    }else{
+        offset =  parseInt(pagina) * 4
+    }
+
+
+    Artigo.findAndCountAll({
+        limit: 2,
+        offset: 2
+    })
+    .then(artigo => {
+
+
+        var proximo
+        if (offset + 4 >= artigo.count) {
+            proximo = false
+        }else{
+            proximo = true
+        }
+
+        var resultado = {
+            proximo: proximo,
+            artigo: artigo,
+        }
+
+        res.json(resultado)
+    })
+})
+
+
+
+
 module.exports = router
