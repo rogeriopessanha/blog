@@ -77,4 +77,23 @@ router.get('/admin/artigo/editar/:id', (req, res) =>{
     })
 })
 
+router.post('/artigo/atualizar', (req, res) => {
+    var id = req.body.id
+    var titulo = req.body.titulo
+    var assunto = req.body.assunto
+    var categoria = req.body.categoria
+
+    Artigo.atualizar({titulo: titulo, body: assunto, categoriaId: categoria, slug: slugfy(titulo)}, {
+        where: {
+            id: id
+        }
+    })
+    .then(() => {
+        res.redirect('/admin/artigo')
+    })
+    .catch(error => {
+        res.redirect('/')
+    })
+})
+
 module.exports = router

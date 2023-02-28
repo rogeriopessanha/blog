@@ -11,7 +11,9 @@
             </div>
 
             <div class="card-body">
-                <form method="POST" action="/artigo/salvar">
+                <form method="POST" action="/artigo/atualizar">
+
+                    <input type="hidden" value="<%= artigo.id %>" name="id">
 
                     <input class="form-control" type="text" name="titulo"
                         placeholder="Defina o titulo do artigo" value="<%= artigo.titulo %>"> <br>
@@ -25,7 +27,6 @@
 
                             <% if (categoria.id == artigo.categoriaId ) { %>
                                 <option value="<%= categoria.id  %>" selected> <%= categoria.titulo  %></option>
-                                
                            <% }else{ %>
 
                             <option value="<%= categoria.id  %>"> <%= categoria.titulo  %></option>
@@ -74,8 +75,15 @@ tinymce.init({
         'table',
         'emoticons',
     ],
+
+
+    // init_instance_callback: () => {
+    //     tinymce.get('artigo').setContent($('#conteudo').html())
+    // }
+
+
     init_instance_callback: () => {
-        tinymce.get('artigo').setContent($('#conteudo').html)
+        tinymce.activeEditor.setContent(document.getElementById('conteudo').innerHTML)
     }
 })
 </script>
