@@ -9,6 +9,7 @@ const rotaUsuario = require('./usuario/RotaUsuario')
 
 const Artigo = require('./artigos/Artigo')
 const Categoria = require('./categorias/Categoria')
+const Usuario = require("./usuario/Usuario");
 
 
 const dotenv = require('dotenv')
