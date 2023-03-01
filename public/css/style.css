@@ -50,9 +50,18 @@ font-size: 20px;
     margin: 5px 0 25px 0;
     padding: 5px;
     text-decoration: none;
+    transition: all .6s;
+}
+
+.row .col a:hover{
+    background-color: #1c1c1c;
 }
 
 .row .col a.ant{
     float: left;
+}
+
+.row .col a.ant-n{
+    display: none;
 }
 

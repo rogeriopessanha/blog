@@ -22,8 +22,13 @@
             <div class="row">
                 <div class="col">
 
-                    <a class="ant" href="/admin/artigo/pagina/">
-                        << Anterior </a>
+                    <% if (resultado.pagina > 2) { %>
+                        <a class="ant" href="/admin/artigo/pagina/<%= resultado.pagina - 1 %>">
+                            << Anterior </a>
+                        <% }else if(resultado.pagina == 2){ %>
+                            <a class="ant-n" href="/"></a>
+                        <% } %>
+
 
                     <% if (resultado.proximo) { %>
 
