@@ -41,7 +41,8 @@ app.get('/', (req, res) => {
     Artigo.findAll({
         order: [
             ['id', 'DESC']
-        ]
+        ],
+        limit: 2 //limite de artigos na tela principal
     })
         .then(artigo_home => {
 

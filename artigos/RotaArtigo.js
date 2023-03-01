@@ -108,8 +108,11 @@ router.get('/admin/artigo/pagina/:num', (req, res) => {
 
 
     Artigo.findAndCountAll({
-        limit: 2,
+        limit: 4,
         offset: offset,
+        order: [
+            ['id', 'DESC']
+        ]
     })
     .then(artigo => {
 
@@ -121,6 +124,7 @@ router.get('/admin/artigo/pagina/:num', (req, res) => {
         }
 
         var resultado = {
+            pagina: parseInt(pagina),
             proximo: proximo,
             artigo: artigo,
         }

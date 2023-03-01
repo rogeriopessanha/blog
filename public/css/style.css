@@ -41,3 +41,18 @@ font-size: 20px;
     padding-left: 20px;
 }
 
+.row .col a{
+    float: right;
+    background-color: #8e8e8e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin: 5px 0 25px 0;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.row .col a.ant{
+    float: left;
+}
+

@@ -5,15 +5,14 @@
     <body>
         <div class="container">
 
-            <hr>
             <div class="jumbotron">
                 <h1 class="display-4">Bem-vindo</h1>
                 <p class="lead">Este é um simples blog do guia do programador.</p>
-                <hr class="my-4">
+                <!-- <hr class="my-4"> -->
                 <p>Descrição detalhada aqui!</p>
                 <a class="btn btn-primary btn-lg" href="#" role="button">Leia mais</a>
               </div>
-            <hr>
+
 
         
              <% artigos.forEach(artigo => { %>
@@ -27,6 +26,13 @@
                 </div>
                 <br>
             <% }) %>
+
+
+            <div class="row">
+                <div class="col">
+                    <a href="/admin/artigo/pagina/2">Próxima >></a>
+                </div>
+            </div>
         </div>
 
     </body>
