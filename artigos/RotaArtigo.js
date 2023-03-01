@@ -103,7 +103,7 @@ router.get('/admin/artigo/pagina/:num', (req, res) => {
     if (isNaN(pagina) || pagina == 1) {
         offset = 0
     }else{
-        offset =  parseInt(pagina) * 4
+        offset =  (parseInt(pagina) - 1) * 4
     }
 
 

@@ -5,6 +5,7 @@ const connection = require('./database/db')
 
 const rotaCategoria = require('./categorias/RotaCategoria')
 const rotaArtigos = require('./artigos/RotaArtigo')
+const rotaUsuario = require('./usuario/RotaUsuario')
 
 const Artigo = require('./artigos/Artigo')
 const Categoria = require('./categorias/Categoria')
@@ -35,6 +36,7 @@ connection.authenticate()
 
 app.use('/', rotaCategoria)
 app.use('/', rotaArtigos)
+app.use('/', rotaUsuario)
 
 //renderiza na tela principal
 app.get('/', (req, res) => {
