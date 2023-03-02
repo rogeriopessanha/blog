@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express')
 const app = express()
+const session = require('express-session')
 const connection = require('./database/db')
 
 const rotaCategoria = require('./categorias/RotaCategoria')
@@ -19,6 +20,14 @@ dotenv.config()
 //view engine
 app.set('view engine', 'ejs')
 
+//Sessions
+app.use(session({
+    secret: 'loremipsumdolorsitametconsecteturadipisicing', 
+    cookie: {maxAge: 30000000000},
+    resave: true,
+    saveUninitialized: true
+}))
+
 //arquivos static
 app.use(express.static('public'))
 
@@ -35,9 +44,14 @@ connection.authenticate()
         console.log(error)
     })
 
+
+//rotas    
 app.use('/', rotaCategoria)
 app.use('/', rotaArtigos)
 app.use('/', rotaUsuario)
+
+//rotas session
+
 
 //renderiza na tela principal
 app.get('/', (req, res) => {
