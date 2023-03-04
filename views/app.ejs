@@ -1,40 +1,33 @@
 <%- include('partials/header') %>
-<%- include('partials/homenavbar') %>
 <%- include('partials/navbar') %>
+<%- include('partials/homenavbar') %>
 
     <body>
-        <div class="container">
+      <div class="container">
 
-            <div class="jumbotron">
-                <h1 class="display-4">Bem-vindo</h1>
-                <p class="lead">Este é um simples blog do guia do programador.</p>
-                <!-- <hr class="my-4"> -->
-                <p>Descrição detalhada aqui!</p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Leia mais</a>
-              </div>
-
-
-        
-             <% artigos.forEach(artigo => { %>
-                <div class="card">
-                    <div class="card-header">
-                        <h2><%= artigo.titulo %></h2>
-                    </div>
-                    <div class="card-body">
-                        <a href="/<%= artigo.slug %>" class="btn btn-success">Ler artigo</a>
-                    </div>
-                </div>
-                <br>
-            <% }) %>
-
-
-            <div class="row">
-                <div class="col">
-                    <a href="/admin/artigo/pagina/2">Próxima >></a>
-                </div>
-            </div>
+        <div class="jumbotron">
+          <h1 class="display-4">Bem-vindo ao BlogDev</h1>
+          <p class="lead">Este é um simples blog do guia do programador.</p>
         </div>
 
+        <% artigos.forEach(artigo=> { %>
+          <div class="card">
+            <div class="card-header">
+              <h2>
+                <%= artigo.titulo %>
+              </h2>
+            </div>
+            <div class="card-body">
+              <a href="/<%= artigo.slug %>" class="btn btn-success">Ler artigo</a>
+            </div>
+          </div>
+          <br>
+          <% }) %>
+
+            <div class="row">
+              <div class="col">
+                <a href="/admin/artigo/pagina/2">Próxima >></a>
+              </div>
     </body>
 
-<%- include('partials/footer') %>
+    <%- include('partials/footer') %>

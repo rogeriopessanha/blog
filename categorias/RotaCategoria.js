@@ -2,11 +2,16 @@ const express =  require('express')
 const router = express.Router()
 const Categoria = require('./Categoria')
 const slugify = require('slugify')
+const adminAuth = require('../middleware/adminAuth')
 
-router.get('/admin/categoria/novo', (req, res) => {
+
+// Tela para criar nova categoria
+router.get('/admin/categoria/novo', adminAuth, (req, res) => {
     res.render('admin/categoria/novo')
 })
 
+
+// Enviando dados para criar categoria
 router.post ('/categoria/salvar', (req, res) => {
     var titulo = req.body.titulo
     if (titulo != undefined) {
@@ -24,7 +29,7 @@ router.post ('/categoria/salvar', (req, res) => {
     }
 })
 
-router.get('/admin/categoria', (req, res) => {
+router.get('/admin/categoria', adminAuth, (req, res) => {
 
     Categoria.findAll()
     .then(categoria => {
@@ -33,6 +38,7 @@ router.get('/admin/categoria', (req, res) => {
 
 })
 
+// Tela para deletar categoria
 router.post('/categoria/delete', (req, res) => {
     var id = req.body.id
 
@@ -55,7 +61,8 @@ router.post('/categoria/delete', (req, res) => {
     }
 })
 
-router.get('/admin/categoria/editar/:id', (req, res) => {
+// Tela para editar categoria
+router.get('/admin/categoria/editar/:id', adminAuth, (req, res) => {
     var id = req.params.id
     
     if (isNaN(id)) {
@@ -77,6 +84,7 @@ router.get('/admin/categoria/editar/:id', (req, res) => {
     })
 })
 
+// Atualizando categoria
 router.post('/categoria/atualizar', (req, res) =>{
     var id = req.body.id
     var titulo = req.body.titulo

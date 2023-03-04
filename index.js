@@ -1,4 +1,9 @@
+
+//variaveis de ambiente
 require('dotenv').config();
+const dotenv = require('dotenv')
+dotenv.config()
+
 const express = require('express')
 const app = express()
 const session = require('express-session')
@@ -13,9 +18,6 @@ const Categoria = require('./categorias/Categoria')
 const Usuario = require("./usuario/Usuario");
 
 
-const dotenv = require('dotenv')
-dotenv.config()
-
 
 //view engine
 app.set('view engine', 'ejs')
@@ -23,7 +25,7 @@ app.set('view engine', 'ejs')
 //Sessions
 app.use(session({
     secret: 'loremipsumdolorsitametconsecteturadipisicing', 
-    cookie: {maxAge: 30000000000},
+    cookie: {maxAge: 30000000},
     resave: true,
     saveUninitialized: true
 }))

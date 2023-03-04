@@ -3,17 +3,19 @@ const router = express.Router()
 const Categoria = require('../categorias/Categoria')
 const Artigo = require('./Artigo')
 const slugfy = require('slugify')
+const adminAuth = require('../middleware/adminAuth')
 
-router.get ('/admin/artigo', (req, res) => {
+router.get ('/admin/artigo', adminAuth, (req, res) => {
     Artigo.findAll({
-        include: [{model: Categoria}]
+        include: [{model: Categoria}],
+        order: [['id', 'DESC']]
     })
     .then(artigo => {
         res.render('admin/artigo/index', {artigo: artigo})
     })
 })
 
-router.get('/admin/artigo/novo', (req, res) => {
+router.get('/admin/artigo/novo', adminAuth, (req, res) => {
     Categoria.findAll()
     .then(categoria => {
         res.render('admin/artigo/novo', {categoria: categoria})
@@ -58,7 +60,7 @@ router.post('/artigo/delete', (req, res) => {
     }
 })
 
-router.get('/admin/artigo/editar/:id', (req, res) =>{
+router.get('/admin/artigo/editar/:id', adminAuth, (req, res) =>{
     var id = req.params.id
     Artigo.findByPk(id)
     .then(artigo => {
