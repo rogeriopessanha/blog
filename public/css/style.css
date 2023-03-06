@@ -4,6 +4,17 @@ body{
     color: #fff;
 }
 
+a{
+    text-decoration: none;
+    color: #000;
+    padding: 10px;
+   
+}
+
+a.dropdown-item{
+    background-color: red;
+}
+
 .container{
     max-width: 500px;
     height: 50vh;

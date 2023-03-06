@@ -2,12 +2,15 @@
 <%- include('partials/navbar') %>
 <%- include('partials/homenavbar') %>
 
+
     <body>
       <div class="container">
 
         <div class="jumbotron">
           <h1 class="display-4">Bem-vindo ao BlogDev</h1>
-          <p class="lead">Este é um simples blog do guia do programador.</p>
+          <div class="card text-bg-dark">
+            <img src="../img/pic.jpg" class="card-img" alt="...">
+          </div><br>
         </div>
 
         <% artigos.forEach(artigo=> { %>
@@ -28,6 +31,7 @@
               <div class="col">
                 <a href="/admin/artigo/pagina/2">Próxima >></a>
               </div>
+
     </body>
 
     <%- include('partials/footer') %>
